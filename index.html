@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOID BREACH — Roguelike Space Shooter</title>
+ <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div id="game-container">
+  <canvas id="gameCanvas" width="900" height="650"></canvas>
+
+  <!-- HUD -->
+  <div id="hud">
+    <div id="hud-top-left">
+      <div class="hud-label">HULL INTEGRITY</div>
+      <div class="bar-track"><div class="bar-fill" id="health-fill"></div></div>
+      <div class="hud-label" style="margin-top:4px">VOID SHIELD</div>
+      <div class="bar-track"><div class="bar-fill" id="shield-fill"></div></div>
+    </div>
+
+    <div id="hud-top-right">
+      <div class="hud-label" style="text-align:right">SCORE</div>
+      <div id="score-display">000000</div>
+      <div id="wave-display">WAVE 01</div>
+      <div id="combo-display"></div>
+    </div>
+
+    <div id="boss-bar-container" id="boss-bar-wrap">
+      <div id="boss-label">⚠ VOID HARBINGER ⚠</div>
+      <div id="boss-bar-track"><div id="boss-bar-fill"></div></div>
+    </div>
+
+    <div id="hud-bottom-left">
+      <div class="hud-label">WEAPON</div>
+      <div id="weapon-display">PLASMA CANNON</div>
+    </div>
+
+    <div id="hud-bottom-right">
+      WASD / ARROWS — MOVE<br>
+      SPACE / CLICK — FIRE<br>
+      1 2 3 — WEAPONS
+    </div>
+
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+  </div>
+
+  <!-- Flash overlay -->
+  <div id="flash-overlay"></div>
+
+  <!-- Start Screen -->
+  <div class="screen" id="start-screen">
+    <div class="screen-title">VOID BREACH</div>
+    <div class="screen-sub">— DIMENSIONAL WARFARE PROTOCOL —</div>
+    <div class="story-text">
+      YEAR 2187. The dimensional membrane has collapsed.<br>
+      Void entities pour through fracture points across known space.<br>
+      You are Pilot Zero — last defender of the Helix Gate.<br>
+      Your ship is armed. The void is hungry.<br>
+      <span style="color:var(--neon-pink)">There is no retreat. Only breach.</span>
+    </div>
+    <button class="btn-start" id="btn-start">ENTER THE VOID</button>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div class="screen" id="gameover-screen" style="display:none">
+    <div class="screen-title" style="color:var(--neon-pink);text-shadow:0 0 40px var(--neon-pink)">BREACHED</div>
+    <div class="screen-sub">— PILOT SIGNAL LOST —</div>
+    <div class="stat-row">FINAL SCORE</div>
+    <div class="final-score" id="final-score">000000</div>
+    <div class="stat-row" id="stat-wave"></div>
+    <div class="stat-row" id="stat-kills"></div>
+    <div class="stat-row" id="stat-combo"></div>
+    <br><br>
+    <button class="btn-start" id="btn-restart">REENTER THE VOID</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
